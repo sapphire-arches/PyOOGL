@@ -1,1 +1,3 @@
-# nothing needs doing in here
+from OpenGL.GLUT import glutInit
+from sys import argv
+glutInit(argv)
