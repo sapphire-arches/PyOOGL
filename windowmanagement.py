@@ -3,7 +3,7 @@ from OpenGL.GLUT import GLUT_DOUBLE, GLUT_RGB, GLUT_DEPTH
 from OpenGL.GLUT import glutDisplayFunc, glutReshapeFunc, glutIdleFunc
 from OpenGL.GLUT import glutMainLoop
 from OpenGL.GLUT import glutSwapBuffers
-from OpenGL.GL import glClear, GL_COLOR_BUFFER_BIT
+from OpenGL.GL import glClear, glClearColor, GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT
 from time import time, sleep
 from sys import argv
 
@@ -26,6 +26,8 @@ class Window:
             resize_func = _resize_wrapper(self, resize_func)
             glutReshapeFunc(resize_func)
 
+        glClearColor(0, 0, 0, 0)
+
     def get_height(self):
         return self.height
 
@@ -33,7 +35,7 @@ class Window:
         return self.width
 
     def clear(self):
-        glClear(GL_COLOR_BUFFER_BIT)
+        glClear(GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT)
 
 def main_loop():
     glutMainLoop()
