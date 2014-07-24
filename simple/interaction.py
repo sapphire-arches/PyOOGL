@@ -1,6 +1,8 @@
-from OpenGL.GLUT import glutKeyboardFunc, glutKeyboardUpFunc, glutSpecialFunc, glutSpecialUpFunc
+from OpenGL.GLUT import glutKeyboardFunc, glutKeyboardUpFunc, glutSpecialFunc, glutSpecialUpFunc, glutMotionFunc, glutPassiveMotionFunc
 _keystates = {}
 _specials = {}
+_mouse_pos = (0, 0)
+_button_states = {}
 
 def _key_down(key, x, y):
     _keystates[key[0]] = True
@@ -14,6 +16,16 @@ def _special_down(key, x, y):
 def _special_up(key, x, y):
     _specials[key] = False
 
+def _mouse_pos_listener(x, y):
+    _mouse_pos = (x, y)
+
+def _mouse_button_listener(button, state, x, y):
+    if state == 0:
+        _button_states[button] = False
+    else:
+        _button_states[button] = True
+    _mouse_pos = (x, y)
+
 def register_callbacks():
     glutKeyboardFunc(_key_down)
     glutKeyboardUpFunc(_key_up)
@@ -21,11 +33,28 @@ def register_callbacks():
     glutSpecialFunc(_special_down)
     glutSpecialUpFunc(_special_up)
 
+    glutMotionFunc(_mouse_pos_listener)
+    glutPassiveMotionFunc(_mouse_pos_listener)
+
 def is_key_pressed(key):
-    val = bytes(key)[0]
+    val = bytes(key, 'ascii')[0]
     if val not in _keystates:
         return False
-    return _keystatese[val]
+    return _keystates[val]
+
+def is_mouse_button_pressed(button):
+    if button not in _button_states:
+        return False
+    return  _button_states[button]
+
+def get_mouse_x():
+    return _mouse_pos[0]
+
+def get_mouse_y():
+    return _mouse_pos[1]
+
+def get_mouse_pos():
+    return _mouse_pos
 
 # 100 = left        / numpad 4
 # 101 = up          / numpad 8
