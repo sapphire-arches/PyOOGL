@@ -1,4 +1,4 @@
-from OpenGL.GLUT import glutKeyboardFunc, glutKeyboardUpFunc, glutSpecialFunc, glutSpecialUpFunc, glutMotionFunc, glutPassiveMotionFunc
+from OpenGL.GLUT import glutKeyboardFunc, glutKeyboardUpFunc, glutSpecialFunc, glutSpecialUpFunc, glutMotionFunc, glutPassiveMotionFunc, glutMouseFunc
 _keystates = {}
 _specials = {}
 _mouse_pos = (0, 0)
@@ -21,9 +21,9 @@ def _mouse_pos_listener(x, y):
 
 def _mouse_button_listener(button, state, x, y):
     if state == 0:
-        _button_states[button] = False
-    else:
         _button_states[button] = True
+    else:
+        _button_states[button] = False
     _mouse_pos = (x, y)
 
 def register_callbacks():
@@ -35,6 +35,8 @@ def register_callbacks():
 
     glutMotionFunc(_mouse_pos_listener)
     glutPassiveMotionFunc(_mouse_pos_listener)
+
+    glutMouseFunc(_mouse_button_listener)
 
 def is_key_pressed(key):
     val = bytes(key, 'ascii')[0]
