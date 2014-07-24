@@ -3,6 +3,7 @@ from OpenGL.GL import *
 from math import ceil, log
 
 class Sprite:
+    """ Simple class used to render sprites """
     def __init__(self, filename):
         imported_img = Image.open(filename)
         self.x_two = pow(2, ceil(log(imported_img.size[0]) / log(2)))

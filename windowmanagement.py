@@ -8,6 +8,10 @@ from time import time, sleep
 from sys import argv
 
 class Window:
+    """
+    represents a GLUT window
+    """
+
     def __init__(self, winname, size=(800, 600), display_func=None, resize_func=None):
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH)
         glutInitWindowSize(size[0], size[1])
@@ -38,7 +42,10 @@ class Window:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
 def main_loop():
+    """ starts the glut main loop """
     glutMainLoop()
+
+# internal stuffs - do not touch
 
 _lastTime = 0
 def _display_wrapper(display):

@@ -1,4 +1,4 @@
-# Color management magics
+""" Color management magics """
 
 # (hue, saturation, value)
 def hsv_to_rgb(*color):

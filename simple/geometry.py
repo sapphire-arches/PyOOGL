@@ -1,3 +1,4 @@
+""" Functions for drawing solid geometric shapes """
 from OpenGL.GL import *
 from math import pi, cos, sin
 
