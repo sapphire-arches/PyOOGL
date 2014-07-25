@@ -27,6 +27,7 @@ def _special_up(key, x, y):
     _specials[key] = False
 
 def _mouse_pos_listener(x, y):
+    global _mouse_pos
     _mouse_pos = (x, y)
 
 def _mouse_button_listener(button, state, x, y):
