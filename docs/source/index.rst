@@ -6,12 +6,17 @@
 Welcome to PyOOGL's documentation!
 ==================================
 
+PyOOGL attempts to wrap PyOpenGL into an object-oriented format for easier
+resource management. Right now the :mod:`PyOOGL.simple` module is the most
+complete, but there are some other utilities which some may find usefull.
+
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
    windowmanagement
+   simple
    color
 
 
