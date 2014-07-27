@@ -14,3 +14,4 @@ for many simple applications.
    resize
    geometry
    interaction
+   sprite
