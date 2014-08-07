@@ -24,7 +24,7 @@ def draw_rectangle(x, y, width, height, color):
     glEnd()
 
 def draw_line(x1, y1, x2, y2, color):
-    glBegin(GL_LINE)
+    glBegin(GL_LINES)
     glColor3f(color[0], color[1], color[2])
     glVertex2f(x1, y1)
     glVertex2f(x2, y2)

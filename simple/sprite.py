@@ -35,6 +35,8 @@ class Sprite:
 
         glBegin(GL_QUADS)
 
+        glColor(1, 1, 1)
+
         glTexCoord2f(0, 0)
         glVertex2f(x, y)
 
