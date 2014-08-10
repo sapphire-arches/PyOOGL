@@ -15,3 +15,4 @@ for many simple applications.
    geometry
    interaction
    sprite
+   text
